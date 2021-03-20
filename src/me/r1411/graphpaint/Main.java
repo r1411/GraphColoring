@@ -35,6 +35,8 @@ public class Main {
         Graph graph = new Graph(graphMatrix);
 
         colorize(graph, k, graph.getVertices().size(), outputFile);
+
+        JOptionPane.showMessageDialog(null, "Результат вычислен. Выходной файл: " + outputFile.getAbsolutePath(), "Готово", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private static void colorize(Graph graph, int k, int n, File outputFile) {
