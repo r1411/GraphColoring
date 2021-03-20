@@ -63,7 +63,6 @@ public class Main {
         lines.add("Результат: ");
 
         if(success) {
-            StringBuilder str = new StringBuilder();
             HashMap<Integer, Set<Integer>> colorsMap = new HashMap<>();
             for(int i = 0; i < colors.length; i++) {
                 if(!colorsMap.containsKey(colors[i]))
@@ -74,8 +73,6 @@ public class Main {
             for(int color : colorsMap.keySet()) {
                 lines.add("Вершины цвета " + color + ": " + colorsMap.get(color));
             }
-
-            lines.add(str.toString());
         } else {
             lines.add("Раскраски для k = " + k + " не существует");
         }
