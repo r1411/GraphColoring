@@ -43,7 +43,7 @@ public class Main {
         for(int i = 0; i < Math.pow(k, n); i++) {
             graph.colorize(colors);
 
-            if(graph.isProperlyColorized()) {
+            if(graph.checkColors()) {
                 writeResultToFile(outputFile, colors, k, true);
                 return;
             }

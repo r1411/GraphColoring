@@ -72,33 +72,19 @@ public class Graph {
         return this.edges;
     }
 
-    public Set<Vertex> getAdjacentTo(Vertex v) {
-        Set<Vertex> result = new HashSet<>();
-        for(Vertex vi : this.getVertices()) {
-            if(!v.equals(vi) && this.hasEdge(v, vi))
-                result.add(vi);
-        }
-        return result;
-    }
-
     public void colorize(int[] colors) {
         for(int i = 0; i < colors.length; i++) {
             this.getVertexByIndex(i).setColor(colors[i]);
         }
     }
 
-    public boolean isProperlyColorized() {
+    public boolean checkColors() {
         for(Edge e : this.getEdges()) {
             if(!e.getVertexA().isColorized() || !e.getVertexB().isColorized() || e.getVertexA().getColor() == e.getVertexB().getColor()) {
                 return false;
             }
         }
         return true;
-    }
-
-    public void clearColors() {
-        for(Vertex v : this.vertices)
-            v.clearColor();
     }
 
     @Override
