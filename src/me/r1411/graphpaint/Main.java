@@ -34,10 +34,10 @@ public class Main {
 
         Graph graph = new Graph(graphMatrix);
 
-        colorizeGraph(graph, k, graph.getVertices().size(), outputFile);
+        colorize(graph, k, graph.getVertices().size(), outputFile);
     }
 
-    private static void colorizeGraph(Graph graph, int k, int n, File outputFile) {
+    private static void colorize(Graph graph, int k, int n, File outputFile) {
         int[] colors = new int[n];
 
         for(int i = 0; i < Math.pow(k, n); i++) {
