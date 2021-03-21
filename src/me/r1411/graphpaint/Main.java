@@ -43,11 +43,12 @@ public class Main {
         int[] colors = new int[n];
 
         for(int i = 0; i < Math.pow(k, n); i++) {
-            graph.colorize(colors);
-
-            if(graph.checkColors()) {
-                writeResultToFile(outputFile, colors, k, true);
-                return;
+            if(getK(colors) == k) {
+                graph.colorize(colors);
+                if(graph.checkColors()) {
+                    writeResultToFile(outputFile, colors, k, true);
+                    return;
+                }
             }
 
             //Переход на следующую комбинацию цветов
@@ -58,6 +59,14 @@ public class Main {
             }
         }
         writeResultToFile(outputFile, colors,  k,false);
+    }
+
+    private static int getK(int[] colors) {
+        HashSet<Integer> hs = new HashSet<>();
+        for(int c : colors)
+            hs.add(c);
+
+        return hs.size();
     }
 
     private static void writeResultToFile(File file, int[] colors, int k, boolean success) {
